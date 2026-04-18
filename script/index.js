@@ -1,21 +1,27 @@
+const ID = document.getElementById("hunterId");
+const NAME = document.getElementById("hunterName");
+const LOGIN = document.getElementById("login");
 
-var id = document.getElementById("hunterId");
-var name = document.getElementById("hunterName");
-var login = document.getElementById("login");
-
-login.addEventListener("click", () => {
-    if(id.value >= 1 && id.value <= 99){
-        checkLoginInfo(id.value, login.value);
+LOGIN.addEventListener("click", () => {
+    if(ID.value >= 1 && ID.value <= 99){
+        checkLoginInfo(ID.value, NAME.value);
     }
 });
 
-async function checkLoginInfo(){
-    var correctName = db
+async function checkLoginInfo(id, name){
+
+
+    const doc = await db
         .collection("login")
-        .doc("hunters");
-    
-    console.log(correctName.1);
-    console.log(correctName["1"]);
-    console.log(correctName.data());
+        .doc("hunters")
+        .get();
+
+    const correctName = doc.data()[String(id)];
+
+    if(correctName.toLowerCase() === name.toLowerCase()){
+        sessionStorage.setItem("id", id);
+        sessionStorage.setItem("name", name);
+        window.location.href = "choose.html";
+    }
 }
 
