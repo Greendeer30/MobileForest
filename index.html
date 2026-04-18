@@ -16,21 +16,28 @@
 
     <br><br>
     <div class="box red">
-        <p class="question">2-Digit ID:</p>
+        <p class="question">Hunter ID (0-99):</p>
         <center>
-            <input class="typing" type="number" id="hunterID"></input>
+            <input class="typing" type="number" id="hunterId"></input>
         </center>
 
         <p class="question">First Name:</p>
         <center>
-            <input class="typing" type="text" id="hunterInitial"></input>
+            <input class="typing" type="text" id="hunterName"></input>
         </center>
 
         <br><br>
     </div>
 
-    <button class="login">Login</button>
+    <center>
+        <button class="submit" id="login">Login</button>
+    </center>
 
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-auth-compat.js"></script>
+    
+    <script src="script/firebase.js"></script>
     <script src="script/index.js"></script>
 
 </body>

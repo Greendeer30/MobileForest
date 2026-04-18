@@ -1,19 +1,21 @@
-//DROP DOWNS
 
-/*var idSelect = document.getElementById("hunterID");
-var initialSelect = document.getElementById("hunterInitial");
+var id = document.getElementById("hunterId");
+var name = document.getElementById("hunterName");
+var login = document.getElementById("login");
 
-for (var i = 0; i<=40; i++){
-    var opt = document.createElement('option');
-    opt.value = i;
-    opt.innerHTML = i;
-    idSelect.appendChild(opt);
+login.addEventListener("click", () => {
+    if(id.value >= 1 && id.value <= 99){
+        checkLoginInfo(id.value, login.value);
+    }
+});
+
+async function checkLoginInfo(){
+    var correctName = db
+        .collection("login")
+        .doc("hunters");
+    
+    console.log(correctName.1);
+    console.log(correctName["1"]);
+    console.log(correctName.data());
 }
 
-var initials = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-for (var i = 0; i<initials.length; i++){
-    var opt = document.createElement('option');
-    opt.value = initials.charAt(i);
-    opt.innerHTML = initials.charAt(i);
-    initialSelect.appendChild(opt);
-}*/
