@@ -19,7 +19,7 @@ async function updateData(){
         .collection("hunters")
         .doc(String(sessionStorage.getItem("id")));
    
-    const startTime = await doc.startTime;
+    const startTime = (await doc.get()).data()["startTime"];
     const endTime = (new Date()).toISOString();
 
     console.log(startTime);
