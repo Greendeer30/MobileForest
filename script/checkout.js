@@ -2,13 +2,26 @@ const BUCKS = document.getElementById("bucks");
 const DOE = document.getElementById("doe");
 const BUTTONBUCKS = document.getElementById("buttonBucks");
 const TOTALCAUGHT = document.getElementById("totalCaught");
-const SUBMIT = document.getElementById("submit");
+const CHECKOUT = document.getElementById("checkout");
 
-BUCKS.addEventListener("input", () => {
-    
+function updateTotal(){
+    var total = Number(BUCKS.value) + Number(DOE.value) + Number(BUTTONBUCKS.value);
+    TOTALCAUGHT.textContent = "Total Caught: " + total;
+}
+
+DOE.addEventListener("input", () => {
+    updateTotal();
 });
 
-SUBMIT.addEventListener("click", () => {
+BUCKS.addEventListener("input", () => {
+    updateTotal();
+});
+
+BUTTONBUCKS.addEventListener("input", () => {
+    updateTotal();
+});
+
+CHECKOUT.addEventListener("click", () => {
 
 
 
