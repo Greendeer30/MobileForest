@@ -14,7 +14,7 @@ CHECKIN.addEventListener("click", () => {
 });
 
 CHECKOUT.addEventListener("click", () => {
-    window.location.href = "caught.html";
+    window.location.href = "checkout.html";
 });
 
 VIEWSTATS.addEventListener("click", () => {

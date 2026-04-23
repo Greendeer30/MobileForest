@@ -10,7 +10,6 @@ LOGIN.addEventListener("click", () => {
 
 async function checkLoginInfo(id, name){
 
-
     const doc = await db
         .collection("login")
         .doc("hunters")
