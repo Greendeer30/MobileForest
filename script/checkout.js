@@ -19,17 +19,33 @@ async function updateData(){
         .collection("hunters")
         .doc(String(sessionStorage.getItem("id")));
    
-    const startTime = (await doc.get()).data()["startTime"];
-    const endTime = (new Date()).toISOString();
+    const data = (await doc.get()).data();
 
-    console.log(startTime);
+    const startTime = data["startTime"];
+    const endTime = Date.now();
+    const hours = (endTime - startTime) / (1000 * 60 * 60);
+    const endDate = (new Date()).toISOString().split("T")[0];
+
+    console.log(hours);
 
     await doc.collection("sessions").doc("2").set({
         bucks: Number(BUCKS.value),
         doe: Number(DOE.value),
         buttonBucks: Number(BUTTONBUCKS.value),
-        caught: total
+        caught: total,
+        startTime: startTime,
+        endTime: endTime,
+        hours: hours,
+        endDate: endDate
     });
+
+    await doc.set({
+        startTime: 0,
+        hours: (Number(data["hours"]) + hours),
+        bucks: (Number(data["bucks"]) + Number(BUCKS.value)),
+        doe: (Number(data["doe"]) + Number(DOE.value)),
+        buttonBucks: (Number(data["buttonBucks"]) + Number(BUTTONBUCKS.value))
+    })
 
     window.location.href = "donecheckout.html";
 
