@@ -45,7 +45,7 @@ async function updateData(){
         bucks: (Number(data["bucks"]) + Number(BUCKS.value)),
         doe: (Number(data["doe"]) + Number(DOE.value)),
         buttonBucks: (Number(data["buttonBucks"]) + Number(BUTTONBUCKS.value))
-    })
+    });
 
     window.location.href = "donecheckout.html";
 
